@@ -16,7 +16,8 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
-    private static final String SECRET_KEY = "14F37665F1F3FC5433D4B385F6765";
+    private static final String SECRET_KEY =
+            "jXWx2Z5ptstIIuBvYHeRe9wjNwlRp58JBly6VEtUz83t4y6QyLzWLtRY7rVp0Wpx";
 
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
@@ -24,7 +25,7 @@ public class JwtService {
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
         Date now = new Date(System.currentTimeMillis());
-        Date experationDate = new Date(System.currentTimeMillis() + 60 * 5);
+        Date experationDate = new Date(System.currentTimeMillis() + 1000 * 60 * 5);
 
         return Jwts.builder()
                 .setClaims(extraClaims)
